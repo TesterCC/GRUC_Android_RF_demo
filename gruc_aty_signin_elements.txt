@@ -1,0 +1,9 @@
+*** Variables ***
+${el_input_password}    id=com.globalroam.gruc.enterprise:id/etPassword
+${el_input_account}    class=android.widget.EditText
+${el_signin_btn}    id=com.globalroam.gruc.enterprise:id/btRequest
+${el_mainbtn_me}    id=com.globalroam.gruc.enterprise:id/mainTab4
+${el_me_settings_btn}    name=Settings
+${el_logout}      id=com.globalroam.gruc.enterprise:id/setLogout
+${el_login_via_otp}    id=com.globalroam.gruc.enterprise:id/tvOTP
+${el_to_signup}    id=com.globalroam.gruc.enterprise:id/tvSignup

@@ -1,0 +1,6 @@
+*** Settings ***
+Resource          gruc_android_appium_config.txt
+Resource          gruc_aty_signin_elements.txt
+Resource          gruc_user_keywords.txt
+Resource          gruc_test_data.txt
+Resource          gruc_android_system_elements.txt

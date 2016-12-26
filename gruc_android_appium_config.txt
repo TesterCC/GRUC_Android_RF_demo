@@ -1,0 +1,10 @@
+*** Settings ***
+Library           AppiumLibrary    run_on_failure=Log Source
+
+*** Variables ***
+${PLATFORM_VERSION}    5.0.1
+${PLATFORM_NAME}    Android
+${DEVICE_NAME}    93e2da8b
+${APP}            ${CURDIR}/installapp/gruc.apk
+${APP_PACKAGE_NAME}    com.globalroam.gruc.enterprise
+${LAUNCH_ACTIVITY}    .mvp.WelcomeActivity

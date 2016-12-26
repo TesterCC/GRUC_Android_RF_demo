@@ -1,0 +1,2 @@
+*** Variables ***
+${sys_el_dismiss_task}    id=com.android.systemui:id/dismiss_task

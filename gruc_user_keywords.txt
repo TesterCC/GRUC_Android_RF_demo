@@ -1,0 +1,45 @@
+*** Settings ***
+Library           AppiumLibrary    run_on_failure=Log Source
+
+*** Keywords ***
+Launch Android App
+    ${REMOTE_URL}=    Catenate    SEPARATOR=    http://localhost:    ${PORT}    /wd/hub
+    Log    ${REMOTE_URL}
+    Open Application    ${REMOTE_URL}    platformName=${PLATFORM_NAME}    platformVersion=${PLATFORM_VERSION}    deviceName=${DEVICE_NAME}    app=${CURDIR}/Installapp/gruc.apk    automationName=appium
+    ...    appPackage=${APP_PACKAGE_NAME}    appActivity=${LAUNCH_ACTIVITY}
+    Log    Start to Launch Android App.
+
+Logout Android App
+    Wait Until Page Contains    Tools
+    Page Should Contain Text    Tools
+    Click Element    ${el_mainbtn_me}
+    Wait Until Page Contains    Settings
+    Click Element    ${el_me_settings_btn}
+    Wait Until Page Contains    Logout
+    Page Should Contain Text    Logout
+    Click Element    ${el_logout}
+    Wait Until Page Contains    Sign in
+    Capture Page Screenshot
+    Log    Logout GRUC App successfully.
+
+Login App Default
+    [Arguments]    ${account}    ${password}
+    Wait Until Page Contains    Sign in
+    Page Should Contain Text    Sign in
+    Click Element    ${el_input_account}
+    Input Text    ${el_input_account}    ${account}
+    #${status}    Set Variable    Page Should Contain Text    ${account}
+    #Run Keyword If
+    Click Element    ${el_input_password}
+    Input Text    ${el_input_password}    ${password}
+    Capture Page Screenshot
+    Click Element    ${el_signin_btn}
+    Wait Until Page Contains    Chat    7000
+    Capture Page Screenshot
+    Log    Login App successfully.
+
+Close Android App
+    Press Keycode    187
+    Wait Until Page Contains Element    ${sys_el_dismiss_task}
+    Click Element    ${sys_el_dismiss_task}
+    Log    Closed Android App successfully.

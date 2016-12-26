@@ -1,0 +1,14 @@
+*** Settings ***
+Resource          AllResource.txt
+
+*** Variables ***
+${PORT}           4723
+
+*** Test Cases ***
+1-1-1-test_login_and_logout
+    [Tags]    AllTest
+    [Setup]    Launch Android App
+    # Test Login and Logout
+    Login App Default    ${test_account}    ${test_password}
+    Logout Android App
+    [Teardown]    Close Android App
